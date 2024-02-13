@@ -17,11 +17,11 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        $products = Product::factory()->count(100000)->create();
+        $products = Product::factory()->count(100000)->make();
         $productsArr = []; 
         $companies = Company::take(20)->get();
         $brands = Brand::take(20)->get();
-        foreach($productsArr as $product){
+        foreach($products as $product){
             $product->company_id = $companies->random()->id ;
             $product->brand_id = $brands->random()->id ;
             array_push($productsArr, $product->toArray());
