@@ -22,7 +22,7 @@ class ProductController extends Controller
     }
     public function getOne(Product $product){
 
-        return Response::json(ProductResource::make($product));
+        return ProductResource::make($product);
 
 
     }
@@ -31,13 +31,13 @@ class ProductController extends Controller
 
         $product = new Product($request->all());
         $product->save();
-        return Response::json(ProductResource::make($product));
+        return ProductResource::make($product);
 
     }
     public function updateOne(UpdateOneRequest $request,Product $product){
 
         $product->updateOne($request->all());
-        return Response::json($product);
+        return ProductResource::make($product);
 
     }
     
