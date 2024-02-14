@@ -2,6 +2,9 @@
 
 namespace App\Http\Requests\Api\ProductController;
 
+use App\Models\Brand;
+use App\Models\Company;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreateOneRequest extends FormRequest
@@ -13,7 +16,7 @@ class CreateOneRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +27,11 @@ class CreateOneRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required','string','max:100'],
+            'description' => ['required','string','max:1000'],
+            'price' => ['required','numeric','min:0'],
+            'company_id' => [Rule::exists(Company::make()->getTable()),'id'],
+            'brand_id' => [Rule::exists(Brand::make()->getTable()),'id'],
         ];
     }
 }
