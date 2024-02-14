@@ -43,7 +43,7 @@ Route::prefix('brand')->name('brand.')->group(function (){
 
 
 Route::prefix('product')->name('product.')->group(function (){
-    Route::get('/getAll', [ProductController::class,'getAll']);
+    Route::get('/getAll', [ProductController::class,'getAll'])->name('product.getALL');
     Route::get('/getOne/{id}', [ProductController::class,'getOne']);
     Route::post('/createOne', [ProductController::class,'createOne']);
     Route::put('/updateOne/{id}', [ProductController::class,'updateOne']);
