@@ -17,7 +17,7 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        $products = Product::factory()->count(100000)->make();
+        $products = Product::factory()->count(4000)->make();
         $productsArr = []; 
         $companies = Company::take(20)->get();
         $brands = Brand::take(20)->get();

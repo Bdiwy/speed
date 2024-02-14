@@ -18,7 +18,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Company::class);
-            $table->string(Brand::class);
+            $table->foreignIdFor(Brand::class);
             $table->string('name');
             $table->string('description');
             $table->double('price');

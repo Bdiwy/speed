@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\BrandController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\CompanyController;
+use App\Http\Controllers\Api\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
